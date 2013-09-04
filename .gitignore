@@ -1,0 +1,4 @@
+node_modules
+lib-cov
+.DS_Store
+protractor-spec
