@@ -1,12 +1,13 @@
 #wd-tractor
 
-A port of [protractor](https://github.com/angular/protractor) to the wd driver.
+A port of [Protractor](https://github.com/angular/protractor) to the 
+[wd](https://github.com/admc/wd) driver.
 
 This is an early version so expect a few bugs. 
 
 ## Credit
 
-- Thanks to the [Protractor](https://github.com/angular/protractor) team. A lot
+- Thanks to the [Protractor](https://github.com/angular/protractor) project. A lot
 of ideas and code have been lifted from there.
 
 ## Install
@@ -15,7 +16,7 @@ of ideas and code have been lifted from there.
 npm install wd-tractor
 ```
 
-You also need to have Selenium runnong, or use Saucelabs.
+You also need to have Selenium running, or use Saucelabs.
 
 ## Code sample
 
@@ -79,7 +80,7 @@ wd-tractor extends the wd api.
 waitForAngular(cb) -> cb(err)
 
 /**
- * Addi a mock module 
+ * Add a mock module 
  */
 addMockModule(name, script)
 
@@ -113,7 +114,7 @@ waitForVisibleByNgBinding(binding, cb) -> cb(err)
 
 
 /**
- * Methods to lookup input bound to ng-model.  
+ * Methods to lookup input bound with ng-model.  
  */
 elementByNgInput(model.cb) -> cb(err, el)
 elementByNgInputIfExists(model.cb) -> cb(err, el)
@@ -123,7 +124,7 @@ waitForElementByNgInput(model.cb) -> cb(err)
 waitForVisibleByNgInput(model.cb) -> cb(err)
 
 /**
- * Methods to lookup select bound to ng-model.  
+ * Methods to lookup select bound with ng-model.  
  */
 elementByNgSelect(model.cb) -> cb(err, el)
 elementByNgSelectIfExists(model.cb) -> cb(err, el)
@@ -133,7 +134,7 @@ waitForElementByNgSelect(model.cb) -> cb(err)
 waitForVisibleByNgSelect(model.cb) -> cb(err)
 
 /**
- * Methods to lookup selected options bound to ng-model.  
+ * Methods to lookup selected options bound with ng-model.  
  */
 elementByNgSelectedOption(model.cb) -> cb(err, el)
 elementByNgSelectedOptionIfExists(model.cb) -> cb(err, el)
@@ -165,7 +166,7 @@ waitForElementByNgRepeaterRow(repeatDescriptor, index, cb) -> cb(err)
 waitForVisibleByNgRepeaterRow(repeatDescriptor, index, cb) -> cb(err)
 
 /**
- * Methods to lookup a column within ng repeaters. This returns alist containing
+ * Method to lookup a column within ng repeaters. This returns a list containing
  * the column elements.
  */
 elementsByNgRepeaterColumn(repeatDescriptor, binding, cb) -> cb(err, els)
