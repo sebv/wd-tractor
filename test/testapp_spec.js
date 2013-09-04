@@ -51,10 +51,10 @@ describe('longer example', function() {
           function(done) { browser.clickElement(fetchButton, done); },
           // The quick RPC works fine.
 
-          function(done) {browser.elementByBinding('{{status}}', function(err, elem) {
+          function(done) {browser.elementByNgBinding('{{status}}', function(err, elem) {
             elemTextShouldEqual(browser, elem, '200', done);
           });},
-          function(done) {browser.elementByBinding('data', function(err, elem) {
+          function(done) {browser.elementByNgBinding('data', function(err, elem) {
             elemTextShouldEqual(browser, elem, 'done', done);
           });},
           function(done) {browser.clickElement(sample2Button, done);},
@@ -71,28 +71,42 @@ describe('longer example', function() {
     });
 
     // describe('slow rendering', function() {
-    //   beforeEach(function() {
-    //     ptor.get('app/index.html#/repeater');
+    //   beforeEach(function(done) {
+    //     browser.get(urlRoot + 'app/index.html#/repeater', done);
     //   });
 
-    //   it('should synchronize with a slow action', function() {
-    //     var addOneButton = ptor.findElement(protractor.By.id('addone'));
-    //     addOneButton.click();
-    //     var topNumber = ptor.findElement(
-    //         protractor.By.repeater('foo in foos').row(1).
-    //         column('{{foo.b}}'));
+    //   it('should synchronize with a slow action', function(done) {
+    //     var addOneButton;
+    //     async.waterfall([
+    //       function(done) {browser.elementById('addone', done);},
+    //       function(_addOneButton, done) {
+    //         addOneButton = _addOneButton;
+    //         browser.click(addOneButton, done);
+    //       },
+    //     ]);
+    //     browser.elementById('addone', function(err, addOneButton) {
+    //       if(err) {return done(err);}
+    //       async.series([
+    //         function(done) {browser.click(addOneButton, done);},
+    //       ], done);
+    //     });
+    //     // var topNumber = ptor.findElement(
+    //     //     protractor.By.repeater('foo in foos').row(1).
+    //     //     column('{{foo.b}}'));
 
-    //     expect(topNumber.getText()).toEqual('14930352');
+    //     // expect(topNumber.getText()).toEqual('14930352');
 
-    //     addOneButton.click();
+    //     // addOneButton.click();
 
-    //     topNumber = ptor.findElement(
-    //         protractor.By.repeater('foo in foos').row(1).
-    //         column('{{foo.b}}'));
+    //     // topNumber = ptor.findElement(
+    //     //     protractor.By.repeater('foo in foos').row(1).
+    //     //     column('{{foo.b}}'));
 
-    //     expect(topNumber.getText()).toEqual('24157817');
+    //     // expect(topNumber.getText()).toEqual('24157817');
     //   });
     // });
+
+
   });
 
 });
