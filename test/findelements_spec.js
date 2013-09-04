@@ -1,5 +1,6 @@
-var wd = require('../lib/main');
+var wd = require('../index');
 var should = require('should');
+var async = require('async');
 
 describe('finding elements', function() {
   this.timeout(10000);
@@ -11,12 +12,12 @@ describe('finding elements', function() {
     browser.init({
       browserName: 'chrome'
     }, function() {
-      browser.on('status', function(info) {
-        console.log(info);
-      });
-      browser.on('command', function(meth, path, data) {
-        console.log(' > ' + meth, path, data || '');
-      });
+      // browser.on('status', function(info) {
+      //   console.log(info);
+      // });
+      // browser.on('command', function(meth, path, data) {
+      //   console.log(' > ' + meth, path, data || '');
+      // });
       done();
     });
   });

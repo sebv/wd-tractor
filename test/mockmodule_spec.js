@@ -51,7 +51,7 @@ describe('mock modules', function() {
     browser.addMockModule('moduleA', mockModuleA);
     async.waterfall([
       function(done) {browser.get(urlRoot + 'app/index.html', done);},
-      function(session, done) {browser.elementByCss('[app-version]', done);},
+      function(done) {browser.elementByCss('[app-version]', done);},
       function(appVersion, done) {appVersion.text(done);},
       function(appVersion, done) {appVersion.should.equal('2'); done();},
     ], done);
@@ -63,7 +63,7 @@ describe('mock modules', function() {
 
     async.waterfall([
       function(done) {browser.get(urlRoot + 'app/index.html', done);},
-      function(session, done) {browser.elementByCss('[app-version]', done);},
+      function(done) {browser.elementByCss('[app-version]', done);},
       function(appVersion, done) {appVersion.text(done);},
       function(appVersion, done) {appVersion.should.equal('3'); done();},
     ], done);

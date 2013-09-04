@@ -100,6 +100,10 @@ wdGet(url, cb) -> cb(err)
  */
 ngGet(url, cb) -> cb(err)
 
+/**
+ * Sets the angular root element.  
+ */
+setRootEl(rootEl)
 
 /**
  * Methods to lookup element(s) using angular bindings.  
