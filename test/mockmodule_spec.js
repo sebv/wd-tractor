@@ -39,6 +39,10 @@ describe('mock modules', function() {
     });
   });
 
+  after(function() {
+    browser.quit();
+  });
+
   afterEach(function() {
     browser.clearMockModules();
   });
