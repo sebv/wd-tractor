@@ -29,12 +29,12 @@ describe('mock modules', function() {
     browser.init({
       browserName: 'chrome'
     }, function() {
-      browser.on('status', function(info) {
-        console.log(info.cyan);
-      });
-      browser.on('command', function(meth, path, data) {
-        console.log(' > ' + meth.yellow, path.grey, data || '');
-      });
+      // browser.on('status', function(info) {
+      //   console.log(info.cyan);
+      // });
+      // browser.on('command', function(meth, path, data) {
+      //   console.log(' > ' + meth.yellow, path.grey, data || '');
+      // });
       done();
     });
   });
