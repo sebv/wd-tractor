@@ -1,7 +1,4 @@
-/* global describe, it, before, after, beforeEach */
-
 var wd = require('../lib/main');
-//var util = require('util');
 var async = require('async');
 var should = require('should');
 
@@ -19,21 +16,13 @@ describe('longer example', function() {
 
   before(function(done) {
     browser = wd.remote();
-
-    async.series([
-      function(done) {
-        browser.init({
-          browserName: 'chrome'
-        }, done);
-      },
-      function(done) {
-        browser.setAsyncScriptTimeout(10000, done);
-      }
-    ], done);
+    browser.init({
+      browserName: 'chrome'
+    }, done);
   });
 
-  after(function(done) {
-    browser.quit(done);
+  after(function() {
+    //browser.quit();
   });
 
   describe('synchronizing with Angular', function() {
@@ -66,9 +55,9 @@ describe('longer example', function() {
           function(done) {browser.elementById('statuscode', function(err, elem) {
             elemTextShouldEqual(browser, elem, '200', done);
           });},
-          function(done) {browser.elementById('data', function(err, elem) {
-            elemTextShouldEqual(browser, elem, 'finally done', done);
-          });}
+          // function(done) {browser.elementById('data', function(err, elem) {
+          //   elemTextShouldEqual(browser, elem, 'finally done', done);
+          // });}
         ], done);
 
       }, done);
