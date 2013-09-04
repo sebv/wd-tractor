@@ -1,10 +1,10 @@
 {
   "name": "wd-tractor",
-  "version": "0.0.0",
-  "description": "A clone of protractor using the wd driver as a back-end. Angularjs e2e and midway testing using a straightforward api. ",
+  "version": "0.0.1",
+  "description": "A port of protractor to the admc/wd driver. Angularjs e2e and midway testing using a straightforward api. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
   "keywords": [
     "angularjs",
@@ -16,6 +16,10 @@
     "wd"
   ],
   "author": "sebv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebv/wd-tractor.git"
+  },
   "license": "MIT",
   "dependencies": {
     "wd": "~0.1.1",
