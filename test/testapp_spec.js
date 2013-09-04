@@ -22,7 +22,7 @@ describe('longer example', function() {
   });
 
   after(function() {
-    //browser.quit();
+    browser.quit();
   });
 
   describe('synchronizing with Angular', function() {
