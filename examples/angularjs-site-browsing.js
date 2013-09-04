@@ -2,7 +2,7 @@
  * This assumes that a selenium server is running at localhost:4444.
  */
 var wd;
-try { 
+try {
   wd = require('wd-tractor');
 } catch(ign) {
   wd = require('../index.js');
@@ -31,23 +31,11 @@ async.waterfall([
   function(name, done) { name.should.equal('Hello Bozzo!'); done(); },
   // Getting todo list
   function(done) { browser.get('http://www.angularjs.org', done );},
-  function(done) { 
-    browser.elementByNgRepeaterRow('todo in todos', 2, done); 
+  function(done) {
+    browser.elementByNgRepeaterRow('todo in todos', 2, done);
   }, function(todo, done) { todo.text(done); },
   function(todo, done) { todo.should.equal('build an angular app'); done(); },
 ], function(err) {
   if(err) {throw err;}
-  browser.close();
+  browser.quit();
 });
-
-  // it('should list todos', function(done) {
-  //   ptor.get('http://www.angularjs.org');
-
-  //   var todo = ptor.findElement(
-  //       protractor.By.repeater('todo in todos').row(2));
-
-  //   todo.getText().then(function(text) {
-  //     expect(text).to.eql('build an angular app');
-  //     done();
-  //   });
-  // });
