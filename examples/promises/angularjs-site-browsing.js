@@ -1,6 +1,9 @@
 /**
  * This assumes that a selenium server is running at localhost:4444.
+ *
+ * npm install chai chai-as-promised colors
  */
+
 var wd;
 try {
   wd = require('wd-tractor');

@@ -1,5 +1,7 @@
 /**
  * This assumes that a selenium server is running at localhost:4444.
+ *
+ *  npm install chai colors
  */
 var wd;
 try {
@@ -9,7 +11,9 @@ try {
 }
 var async = require('async');
 require('colors');
-require('should');
+
+var chai = require('chai');
+chai.should();
 
 var browser = wd.remote();
 browser.on('status', function(info) {
