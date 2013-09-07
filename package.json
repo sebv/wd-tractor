@@ -1,6 +1,6 @@
 {
   "name": "wd-tractor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A port of protractor to the admc/wd driver. Angularjs e2e and midway testing using a straightforward api. ",
   "main": "index.js",
   "scripts": {
