@@ -1,10 +1,4 @@
-var wd = require('../lib/main');
-var async = require('async');
-var should = require('should');
-require('colors');
-
 describe('mock modules', function() {
-  this.timeout(10000);
 
   // A module to override the 'version' service. This function will be
   // executed in the context of the application under test, so it may
@@ -21,55 +15,32 @@ describe('mock modules', function() {
   // modules from files? Provide helpers?
   var mockModuleB = "angular.module('moduleB', []).value('version', '3');";
 
-  var urlRoot = 'http://localhost:8000/';
   var browser;
 
-  before(function(done) {
-    browser = wd.remote();
-    browser.init({
-      browserName: 'chrome'
-    }, function() {
-      // browser.on('status', function(info) {
-      //   console.log(info.cyan);
-      // });
-      // browser.on('command', function(meth, path, data) {
-      //   console.log(' > ' + meth.yellow, path.grey, data || '');
-      // });
-      done();
-    });
+  before(function() {
+    return browser = initBrowser();
   });
 
   after(function() {
-    browser.quit();
+    return browser.quit();
   });
 
   afterEach(function() {
     browser.clearMockModules();
   });
 
-  it('should override services via mock modules', function(done) {
-    browser.addMockModule('moduleA', mockModuleA);
-    async.waterfall([
-      function(done) {browser.get(urlRoot + 'app/index.html', done);},
-      function(done) {browser.elementByCss('[app-version]', done);},
-      function(appVersion, done) {appVersion.text(done);},
-      function(appVersion, done) {appVersion.should.equal('2'); done();},
-    ], done);
+  it('should override services via mock modules', function() {
+    browser
+      .addMockModule('moduleA', mockModuleA)
+      .get(urlRoot + 'app/index.html')
+      .elementByCss('[app-version]').text().should.become('2');
   });
 
-  it('should have the version of the last loaded module', function(done) {
-    browser.addMockModule('moduleA', mockModuleA);
-    browser.addMockModule('moduleB', mockModuleB);
-
-    async.waterfall([
-      function(done) {browser.get(urlRoot + 'app/index.html', done);},
-      function(done) {browser.elementByCss('[app-version]', done);},
-      function(appVersion, done) {appVersion.text(done);},
-      function(appVersion, done) {appVersion.should.equal('3'); done();},
-    ], done);
-
-
-  //   expect(ptor.findElement(protractor.By.css('[app-version]')).getText()).
-  //       toEqual('3');
+  it('should override services via mock modules', function() {
+    return browser
+      .addMockModule('moduleA', mockModuleA)
+      .addMockModule('moduleB', mockModuleB)
+      .get(urlRoot + 'app/index.html')
+      .elementByCss('[app-version]').text().should.become('3');
   });
 });

@@ -5,7 +5,7 @@ var wd;
 try {
   wd = require('wd-tractor');
 } catch(ign) {
-  wd = require('../index.js');
+  wd = require('../../index.js');
 }
 var async = require('async');
 require('colors');

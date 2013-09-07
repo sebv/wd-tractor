@@ -9,7 +9,12 @@
     "before": false,
     "beforeEach": false,
     "after": false,
-    "afterEach": false
+    "afterEach": false,
+    "wd": false,
+    "initBrowser": false,
+    "urlRoot": false,
+    "Q": false,
+    "angular": false
   },
   "immed": true,
   "latedef": true,

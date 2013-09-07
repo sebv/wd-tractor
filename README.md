@@ -18,29 +18,11 @@ npm install wd-tractor
 
 You also need to have Selenium running, or use Saucelabs.
 
-## Code sample
+## Choose your style
 
+### Regular async code
 ``` Javascript
-/**
- * This assumes that a selenium server is running at localhost:4444.
- */
-var wd;
-try {
-  wd = require('wd-tractor');
-} catch(ign) {
-  wd = require('../index.js');
-}
-var async = require('async');
-require('colors');
-require('should');
-
-var browser = wd.remote();
-browser.on('status', function(info) {
-  console.log(info);
-});
-browser.on('command', function(meth, path, data) {
-  console.log(' > ' + meth, path, data || '');
-});
+...
 
 async.waterfall([
   function(done) { browser.init({browserName: 'chrome'}, done); },
@@ -63,6 +45,24 @@ async.waterfall([
 });
 ```
 
+### Promises
+
+``` Javascript
+...
+
+browser
+  .init({browserName: 'chrome'})
+  .get('http://www.angularjs.org')
+  .elementByNgInput('yourName').type('Bozzo')
+  .elementByNgBinding('{{yourName}}')
+    .text().should.become('Hello Bozzo!')
+  .get('http://www.angularjs.org')
+  .elementByNgRepeaterRow('todo in todos', 2)
+    .text().should.become('build an angular app')
+  .quit()
+  .done();
+
+```
 ## Api
 
 ### wd

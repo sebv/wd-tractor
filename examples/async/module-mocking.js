@@ -2,10 +2,10 @@
  * This assumes that a selenium server is running at localhost:4444.
  */
 var wd;
-try { 
+try {
   wd = require('wd-tractor');
 } catch(ign) {
-  wd = require('../index.js');
+  wd = require('../../index.js');
 }
 var async = require('async');
 require('colors');
@@ -26,10 +26,11 @@ var mockModuleA = function() {
 
 var mockModuleB = "angular.module('moduleB', []).value('version', '3');";
 
+// should find better example this actually does nothing
 async.waterfall([
   function(done) { browser.init({browserName: 'chrome'}, done); },
 
-  function(session, done) { 
+  function(session, done) {
     // adding module A mock before getting the page
     browser.addMockModule('moduleA', mockModuleA);
     browser.get('http://www.angularjs.org', done );
