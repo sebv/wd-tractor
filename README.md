@@ -176,6 +176,12 @@ waitForVisibleByNgRepeaterRow(repeatDescriptor, index, cb) -> cb(err)
 elementsByNgRepeaterColumn(repeatDescriptor, binding, cb) -> cb(err, els)
 ```
 
+## Tests
+
+- Start Selenium with Chromedriver
+- Start the test app
+- `mocha test`
+
 ## Todo
 
 - Add debugging functionality.
