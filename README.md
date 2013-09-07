@@ -5,7 +5,7 @@ A port of [Protractor](https://github.com/angular/protractor) to the
 
 This is an early version so expect a few bugs. 
 
-## Credit
+## Credits
 
 - Thanks to the [Protractor](https://github.com/angular/protractor) project. A lot
 of ideas and code have been lifted from there.
