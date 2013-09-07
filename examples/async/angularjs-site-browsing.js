@@ -1,8 +1,9 @@
 /**
  * This assumes that a selenium server is running at localhost:4444.
  *
- *  npm install chai colors
+ *  npm install async chai colors
  */
+
 var wd;
 try {
   wd = require('wd-tractor');
