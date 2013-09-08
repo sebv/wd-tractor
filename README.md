@@ -106,6 +106,12 @@ ngGet(url, cb) -> cb(err)
 setRootEl(rootEl)
 
 /**
+ * Evaluate angular expression in element scope.
+ */
+ngEval(el, expr, cb) -> cb(err, res)
+element.ngEval(expr, cb) -> cb(err, res)
+
+/**
  * Methods to lookup element(s) using angular bindings.  
  */
 elementByNgBinding(binding, cb) -> cb(err, el)
