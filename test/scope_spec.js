@@ -20,9 +20,9 @@ describe('scope', function() {
 
       return urlInput
       .getValue().should.become('/fastcall')
-      .withEl(urlInput).clear().type('/abcd')
-      .withEl(urlInput).getValue().should.become('/abcd')
-      .withEl(urlInput).then(function(el) {
+      .thenDo(urlInput).clear().type('/abcd')
+      .thenDo(urlInput).getValue().should.become('/abcd')
+      .thenDo(urlInput).then(function(el) {
         return browser.ngEval(el,"url").should.become('/abcd');
       })
       .thenResolve(urlInput).ngEval("url").should.become('/abcd');
