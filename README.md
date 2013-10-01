@@ -20,6 +20,25 @@ You also need to have Selenium running, or use Saucelabs.
 
 ## Choose your style
 
+### Promises
+
+``` Javascript
+...
+
+browser
+  .init({browserName: 'chrome'})
+  .get('http://www.angularjs.org')
+  .elementByNgInput('yourName').type('Bozzo')
+  .elementByNgBinding('{{yourName}}')
+    .text().should.become('Hello Bozzo!')
+  .get('http://www.angularjs.org')
+  .elementByNgRepeaterRow('todo in todos', 2)
+    .text().should.become('build an angular app')
+  .quit()
+  .done();
+
+```
+
 ### Regular async code
 ``` Javascript
 ...
@@ -43,25 +62,6 @@ async.waterfall([
   if(err) {throw err;}
   browser.quit();
 });
-```
-
-### Promises
-
-``` Javascript
-...
-
-browser
-  .init({browserName: 'chrome'})
-  .get('http://www.angularjs.org')
-  .elementByNgInput('yourName').type('Bozzo')
-  .elementByNgBinding('{{yourName}}')
-    .text().should.become('Hello Bozzo!')
-  .get('http://www.angularjs.org')
-  .elementByNgRepeaterRow('todo in todos', 2)
-    .text().should.become('build an angular app')
-  .quit()
-  .done();
-
 ```
 ## Api
 
