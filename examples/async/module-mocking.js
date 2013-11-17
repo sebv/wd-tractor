@@ -24,12 +24,14 @@ browser.on('command', function(meth, path, data) {
   console.log(' > ' + meth, path, data || '');
 });
 
-var mockModuleA = function() {
+var Module = wd.Module;
+
+var mockModuleA = new Module( function() {
   var newModule = angular.module('moduleA', []);
   newModule.value('version', '2');
-};
+});
 
-var mockModuleB = "angular.module('moduleB', []).value('version', '3');";
+var mockModuleB = new Module("angular.module('moduleB', []).value('version', '3');");
 
 // should find better example this actually does nothing
 async.waterfall([

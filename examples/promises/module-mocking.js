@@ -16,8 +16,10 @@ var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 chai.should();
 
+chaiAsPromised.transferPromiseness = wd.transferPromiseness;
+
 require('colors');
-var browser = wd.promiseRemote();
+var browser = wd.promiseChainRemote();
 browser.on('status', function(info) {
   console.log(info);
 });
