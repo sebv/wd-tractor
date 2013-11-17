@@ -4,6 +4,11 @@
  * npm install chai chai-as-promised colors
  */
 
+var chai = require("chai");
+var chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
+chai.should();
+
 var wd;
 try {
   wd = require('wd-tractor');
@@ -11,13 +16,10 @@ try {
   wd = require('../../index.js');
 }
 
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
-chai.use(chaiAsPromised);
-chai.should();
+chaiAsPromised.transferPromiseness = wd.transferPromiseness;
 
 require('colors');
-var browser = wd.promiseRemote();
+var browser = wd.promiseChainRemote();
 browser.on('status', function(info) {
   console.log(info);
 });
@@ -31,10 +33,11 @@ browser
   .get('http://www.angularjs.org')
   .elementByNgInput('yourName').type('Bozzo')
   .elementByNgBinding('{{yourName}}')
-    .text().should.become('Hello Bozzo!')
+  .text()
+  .should.become('Hello Bozzo!')
   .get('http://www.angularjs.org')
   .elementByNgRepeaterRow('todo in todos', 2)
-    .text().should.become('build an angular app')
+  .text().should.become('build an angular app')
   .quit()
   .done();
 

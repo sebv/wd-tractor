@@ -19,13 +19,13 @@ describe('scope', function() {
       var urlInput = browser.elementByNgInput('url');
 
       return urlInput
-      .getValue().should.become('/fastcall')
-      .thenDo(urlInput).clear().type('/abcd')
-      .thenDo(urlInput).getValue().should.become('/abcd')
-      .thenDo(urlInput).then(function(el) {
-        return browser.ngEval(el,"url").should.become('/abcd');
-      })
-      .thenResolve(urlInput).ngEval("url").should.become('/abcd');
+        .getValue().should.become('/fastcall')
+        .thenResolve(urlInput).clear().type('/abcd')
+        .thenResolve(urlInput).getValue().should.become('/abcd')
+        .thenResolve(urlInput).then(function(el) {
+          return browser.ngEval(el,"url").should.become('/abcd');
+        })
+        .thenResolve(urlInput).ngEval("url").should.become('/abcd');
     });
 
   });

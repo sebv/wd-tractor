@@ -19,7 +19,9 @@ describe('longer example', function() {
     it('should wait for slow RPCs', function() {
       return  browser
         .elementById('fetch').click()
-        .elementByNgBinding('{{status}}').text().should.become('200')
+        .elementByNgBinding('{{status}}')
+        .text()
+        .should.become('200')
         .elementByNgBinding('data').text().should.become('done')
         .elementById('sample2').click()
         .elementById('fetch').click()

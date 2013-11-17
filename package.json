@@ -22,18 +22,18 @@
   },
   "license": "MIT",
   "dependencies": {
-    "wd": "https://github.com/admc/wd/tarball/promise-chain",
     "async": "~0.2.9",
     "lodash": "~1.3.1",
-    "vargs": "~0.1.0"
+    "vargs": "~0.1.0",
+    "wd": "~0.2.5"
   },
   "devDependencies": {
-    "express": "~3.3.8",
-    "mocha": "~1.12.1",
-    "color": "~0.4.4",
+    "express": "~3.4.4",
+    "mocha": "~1.14.0",
     "colors": "~0.6.2",
-    "mocha-as-promised": "~1.4.0",
-    "chai-as-promised": "~3.3.1",
-    "chai": "~1.7.2"
+    "mocha-as-promised": "~1.4.1",
+    "chai-as-promised": "~4.1.0",
+    "chai": "~1.8.1",
+    "sv-selenium": "~0.2.2"
   }
 }

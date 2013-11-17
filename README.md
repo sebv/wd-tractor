@@ -1,9 +1,7 @@
 #wd-tractor
 
-A port of [Protractor](https://github.com/angular/protractor) to the 
+A port of [Protractor](https://github.com/angular/protractor) to the
 [wd](https://github.com/admc/wd) driver.
-
-This is an early version so expect a few bugs. 
 
 ## Credits
 
@@ -80,17 +78,17 @@ wd-tractor extends the wd api.
 waitForAngular(cb) -> cb(err)
 
 /**
- * Add a mock module 
+ * Add a mock module
  */
-addMockModule(name, script)
+addMockModule(name, new wd.Module(script))
 
 /**
- * Clear all mock modules 
+ * Clear all mock modules
  */
 clearMockModules()
 
 /**
- * Original wd get. 
+ * Original wd get.
  */
 wdGet(url, cb) -> cb(err)
 
@@ -101,7 +99,7 @@ wdGet(url, cb) -> cb(err)
 ngGet(url, cb) -> cb(err)
 
 /**
- * Sets the angular root element.  
+ * Sets the angular root element.
  */
 setRootEl(rootEl)
 
@@ -112,7 +110,7 @@ ngEval(el, expr, cb) -> cb(err, res)
 element.ngEval(expr, cb) -> cb(err, res)
 
 /**
- * Methods to lookup element(s) using angular bindings.  
+ * Methods to lookup element(s) using angular bindings.
  */
 elementByNgBinding(binding, cb) -> cb(err, el)
 elementByNgBindingIfExists(binding, cb) -> cb(err, el)
@@ -124,7 +122,7 @@ waitForVisibleByNgBinding(binding, cb) -> cb(err)
 
 
 /**
- * Methods to lookup input bound with ng-model.  
+ * Methods to lookup input bound with ng-model.
  */
 elementByNgInput(model.cb) -> cb(err, el)
 elementByNgInputIfExists(model.cb) -> cb(err, el)
@@ -134,7 +132,7 @@ waitForElementByNgInput(model.cb) -> cb(err)
 waitForVisibleByNgInput(model.cb) -> cb(err)
 
 /**
- * Methods to lookup select bound with ng-model.  
+ * Methods to lookup select bound with ng-model.
  */
 elementByNgSelect(model.cb) -> cb(err, el)
 elementByNgSelectIfExists(model.cb) -> cb(err, el)
@@ -144,7 +142,7 @@ waitForElementByNgSelect(model.cb) -> cb(err)
 waitForVisibleByNgSelect(model.cb) -> cb(err)
 
 /**
- * Methods to lookup selected options bound with ng-model.  
+ * Methods to lookup selected options bound with ng-model.
  */
 elementByNgSelectedOption(model.cb) -> cb(err, el)
 elementByNgSelectedOptionIfExists(model.cb) -> cb(err, el)
@@ -185,7 +183,7 @@ elementsByNgRepeaterColumn(repeatDescriptor, binding, cb) -> cb(err, els)
 ## Tests
 
 - Start Selenium with Chromedriver
-- Start the test app
+- Start the test app `cd testapp && node ./scripts/web-server.js`
 - `mocha test`
 
 ## Todo
